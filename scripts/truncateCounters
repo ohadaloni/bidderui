@@ -1,0 +1,10 @@
+mys truncate table cCntMinute
+mys truncate table cCntHour
+mys truncate table cCntDay
+mys truncate table cCntMonth
+mys truncate table cCntYear
+# mys truncate table cntMinute
+# mys truncate table cntHour
+# mys truncate table cntDay
+# mys truncate table cntMonth
+# mys truncate table cntYear

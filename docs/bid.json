@@ -1,0 +1,31 @@
+{
+  "id": "02c9be93-0415-4a9c-bc29-2550dd8bb9f4",
+  "bidid": "rtb_j2safwog23ryqudnaufj_1478467595014",
+  "seatbid": [
+    {
+      "seat": "actor_FHS3IB4i2q0FFFml8u6dNeLVtsGtse",
+      "bid": [
+        {
+          "id": "rtb_j2safwog23ryqudnaufj_1478467595014",
+          "adid": "ad_vnWXQ4RMgOrtIOgFxQ47ESRchfxbke",
+          "price": 4.25,
+          "nurl": "",
+          "adm": "",
+          "adomain": [
+            "target.com"
+          ],
+          "cat": [
+            "IAB1"
+          ],
+          "attr": [
+            6
+          ],
+          "impid": "1",
+          "iurl": "https://images.nuviad.com/file_o4JqjwXbEjlQe5ggbthrKJXmngDIV.jpg",
+          "cid": "campaign_SOC07zDa5sLph70PznWediDlRD0Lm"
+        }
+      ]
+    }
+  ],
+  "cur": "USD"
+}

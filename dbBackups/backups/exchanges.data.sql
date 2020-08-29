@@ -1,0 +1,18 @@
+INSERT INTO exchanges VALUES (1,'theora1','theora1');
+INSERT INTO exchanges VALUES (2,'theora2','theora2');
+INSERT INTO exchanges VALUES (3,'smaato','Smaato');
+INSERT INTO exchanges VALUES (4,'mopub','MoPub');
+INSERT INTO exchanges VALUES (5,'axonix','Axonix');
+INSERT INTO exchanges VALUES (6,'adx','AdX');
+INSERT INTO exchanges VALUES (7,'vdopia','Vdopia');
+INSERT INTO exchanges VALUES (8,'adxperience','Adxperience');
+INSERT INTO exchanges VALUES (9,'flurry','Flurry');
+INSERT INTO exchanges VALUES (10,'mobfox','MobFox');
+INSERT INTO exchanges VALUES (11,'openx','OpenX');
+INSERT INTO exchanges VALUES (12,'onebyaol','One by AOL');
+INSERT INTO exchanges VALUES (13,'appnexus','appNexus');
+INSERT INTO exchanges VALUES (14,'verizon','Verizon Media');
+INSERT INTO exchanges VALUES (15,'rubicon','Rubicon Project');
+INSERT INTO exchanges VALUES (16,'pubmatic','PubMatic');
+INSERT INTO exchanges VALUES (17,'indexexchange','Index Exchange');
+INSERT INTO exchanges VALUES (18,'smartyads','SmartyAds');

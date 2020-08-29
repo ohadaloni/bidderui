@@ -1,0 +1,12 @@
+INSERT INTO exchangeTraffic VALUES (1,10,'app',120,120,'MEX','F','12-18');
+INSERT INTO exchangeTraffic VALUES (2,100,'app',174,70,'USA','',NULL);
+INSERT INTO exchangeTraffic VALUES (3,100,'app',120,120,'MEX','',NULL);
+INSERT INTO exchangeTraffic VALUES (5,10,'app',200,200,'ISR',NULL,NULL);
+INSERT INTO exchangeTraffic VALUES (6,10,'app',468,60,'SWE','',NULL);
+INSERT INTO exchangeTraffic VALUES (7,10,'app',728,90,'CHE','','');
+INSERT INTO exchangeTraffic VALUES (8,10,'app',300,250,'RUS',NULL,NULL);
+INSERT INTO exchangeTraffic VALUES (9,10,'app',336,280,'FRA','F',NULL);
+INSERT INTO exchangeTraffic VALUES (10,10,'app',120,600,'DNK','M',NULL);
+INSERT INTO exchangeTraffic VALUES (11,10,'app',160,600,'ESP',NULL,'gt40');
+INSERT INTO exchangeTraffic VALUES (12,10,'app',300,600,'ITA','',NULL);
+INSERT INTO exchangeTraffic VALUES (17,100,'app',377,133,'ISR','','');

@@ -1,0 +1,37 @@
+#!/bin/csh -f
+
+# structure and config data are saveed separately
+# the full db backup has a monthly name
+# so git diffs whenever, on those.
+# but a monthly history is kept
+set V=/var/www/vhosts
+set TAS=$V/tas.theora.com
+source $TAS/conf/dbCredentials.env
+set UI=$V/ohad.bidderui.theora.com
+set theDir=$UI/dbBackups
+set backupDir=$theDir/backups
+set initDir=$theDir/init
+set loginArgs=(  -u$M_USER -p$M_PASSWORD )
+set db=bidder
+mysqldump $loginArgs --skip-quote-names --skip-comments --no-data $db \
+	| fgrep -v '/*\!40' \
+	| sed 's/ ENGINE=InnoDB.*;/;\n\n/' \
+	| cat > $initDir/empty.sql
+
+alias mys mysql --column-names=FALSE $loginArgs $db
+set dataTables=( `echo show tables | mys | egrep -vi 'cnt|wins|revenue'` )
+foreach table ( $dataTables )
+	echo $table
+	mysqldump $loginArgs --skip-quote-names --skip-comments --no-create-info --extended-insert=false $db $table | fgrep 'INSERT' > $backupDir/$table.data.sql
+end
+# full backup
+if ( $#argv == 1 ) then
+	set month=`date +%Y-%m`
+	set fullDir=$theDir/full
+	mysqldump $loginArgs --skip-quote-names --skip-comments  --extended-insert=false $db \
+		| fgrep -v '/*\!40' \
+		| fgrep -v 'LOCK TABLES' \
+		| sed 's/ ENGINE=InnoDB.*;/;\n\n/' \
+		| cat > $fullDir/full.$month.sql
+endif
+

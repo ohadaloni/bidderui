@@ -1,0 +1,22 @@
+# .---------------- minute (0 - 59)
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * ...
+# times are UTC though my env shows date in Asia/Jerusalem (three hours off on 9/14/2014)
+#
+#
+#
+15,45 * * * * /bin/csh -f /var/www/vhosts/ohad.bidderui.theora.com/scripts/dbBackup > /dev/null 2>&1
+5 */6 * * * /bin/csh -f /var/www/vhosts/ohad.bidderui.theora.com/scripts/dbBackup full > /dev/null 2>&1
+#
+* * * * * /usr/bin/php /var/www/vhosts/bidderui.theora.com/scripts/exchange.php > /dev/null 2>&1
+#
+* * * * * /usr/bin/php /var/www/vhosts/bidder.theora.com/scripts/minuteSaver.php > /dev/null 2>&1
+* * * * * /usr/bin/php /var/www/vhosts/bidder.theora.com/scripts/aggregator.php > /dev/null 2>&1
+* * * * * /usr/bin/php /var/www/vhosts/bidder.theora.com/scripts/placementPpmCacher.php > /dev/null 2>&1
+* * * * * /usr/bin/php /var/www/vhosts/bidder.theora.com/scripts/revenueCollector.php > /dev/null 2>&1
+* * * * * /usr/bin/php /var/www/vhosts/bidder.theora.com/scripts/winsCollector.php > /dev/null 2>&1

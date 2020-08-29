@@ -1,0 +1,31 @@
+#!/bin/csh -fe
+
+set V=/var/www/vhosts
+cd $V
+echo bidder
+( cd $V/bidder.theora.com ; git pull  --no-edit )
+echo sink
+( cd $V/sink.bidder.theora.com ; git pull  --no-edit )
+set vhosts=( `$V/bidderui.theora.com/scripts/exchangeVhosts` )
+foreach v ( $vhosts )
+	echo $v
+	( cd $V/$v.bidder.theora.com ; git pull  --no-edit  --no-edit )
+end
+
+set hostname=`hostname`
+if ( $hostname == 'the-dev-host' ) then
+	# on dev
+	set endpoints=( \
+		endpoint00 \
+		endpoint01 \
+	)
+	foreach e ( $endpoints )
+		echo $e
+		echo ssh $e $0
+		ssh $e $V/bidderui.theora.com/scripts/pushBidder
+	end
+endif
+	
+cd $V/bidder.theora.com
+set myGitHubPasswd=`cat $V/tas.theora.com/conf/myGitHubPasswd`
+git push https://ohadaloni:$myGitHubPasswd@github.com/ohadaloni/bidder.git master

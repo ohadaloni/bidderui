@@ -1,0 +1,81 @@
+
+RTB (Real Time Bidder) Architecture & components
+------------------------------------------------
+Software Stack
+	PHP
+	MySQL
+	Mmecache
+also:
+	Linux
+	Apache
+	M - a php framework
+
+Major Components
+	Bidder
+	Services
+	Admin System
+
+
+Bidder
+	The bidder recieves bidRequests from the exchange
+	the bidder handles the request by consulting memcache stored information.
+	No queries to the database are made while handling a request.
+	In statisticaly rare cases,
+	a query might still be made and its results stored in memcache.
+	The requests travels through a sequece of filters and processors,
+	with the final succesful result of producing a bid.
+	each step may in turn decide to refuse the request,
+	in which case the bidder will send a noBid response.
+		method sequence:
+			cnt - count the request
+			onOff - check that the bidder is turned on
+			memcacheSanity - check system loads
+			throttle - check speed upper limit
+			bidRequest - parse
+			geo - verify geo consistency
+			bidRequestStats - collect general statistics
+			noBidTest - respond to test request
+			totalBudget - verify total budget boundary
+			spreadBidderEvenly - pacer. also caps dailyBudget
+			sanity - can we at all handle this request
+			mustMatch - select filtered list of offers that match this request
+			throttled - campaigns pacer filter
+			ammendClicks - add the number of clicks to the offers
+			ammendRpm - add the revenue rpm to the throttled
+			offer - select offer
+			bidPrice - set the bidPrice
+
+
+
+			
+Services
+	A collection of cron services handle the flow of data between memcache and the DB.
+	Services store bidRequest statistics and the activity of the bidder.
+	Summaries are produced for quick access by the bidder and the admin system.
+	A dimension optimizer analyses the data and caches optimization information.
+	Counters are updateed to the database for longer term storage.
+		list of Services:
+			dimensionCleaner - save queued dimension values
+			updater - update counters to DB
+			dimensionBlackLister - campaign optimizer
+			cleaners - general purpose queue storage
+			services - collect admin system report figures
+			summarize - aggregate activity history
+			gc - garbage collector
+
+Admin System
+	Organized as a separate software system,
+	this system is a WEB front end to control the bidder.
+	It facilitats the creation and modification of campaigns,
+	controls campaigns and bidder budgets,
+	and provides reports and graphs to show the bidder's activity.
+		major components
+			control panel -  control the bidder on/off & budgets
+			stats - show bidder & campaign metrics
+			campaign wizard - create & control individual campaigns
+			machine learing - show optimizer activities
+			load averages panel -  monitor system loads
+			bidder - communicate with the bidder (test suite)
+			publisher - simulate ad space publisher page
+			exchange - simulate exchange traffic
+
