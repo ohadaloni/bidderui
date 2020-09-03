@@ -97,7 +97,7 @@ class BlackLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->dbDelete("blackListItems", $_REQUEST['itemId']);
 		else
-			$this->Mview->error("check the box and click button to confirm removing the blacklist item");
+			$this->Mview->msg("check the box and click button to confirm removing the blacklist item");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
@@ -108,7 +108,7 @@ class BlackLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->addBlackList($campaignId, $blackListId);
 		else
-			$this->Mview->error("check the box and click button to confirm adding the blacklist");
+			$this->Mview->msg("check the box and click button to confirm adding the blacklist");
 		$this->redir(true);
 	}
 	/*------------------------------*/
@@ -119,7 +119,7 @@ class BlackLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->removeBlackList($campaignId, $blackListId);
 		else
-			$this->Mview->error("check the box and click button to confirm removing dding the blacklist");
+			$this->Mview->msg("check the box and click button to confirm removing dding the blacklist");
 		$this->redir(true);
 	}
 	/*------------------------------------------------------------*/

@@ -7,7 +7,7 @@ class ControlPanel extends BidderUI {
 		if ( $ok == "on" )
 			$this->newStatus("onOff", 1);
 		else
-			$this->Mview->error("check the box and click button to confirm turning on");
+			$this->Mview->msg("check the box and click button to confirm turning on");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
@@ -16,7 +16,7 @@ class ControlPanel extends BidderUI {
 		if ( $ok == "on" )
 			$this->newStatus("onOff", 0);
 		else
-			$this->Mview->error("check the box and click button to confirm turning off");
+			$this->Mview->msg("check the box and click button to confirm turning off");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/

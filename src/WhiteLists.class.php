@@ -55,7 +55,7 @@ class WhiteLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->dbDelete("whiteListItems", $_REQUEST['itemId']);
 		else
-			$this->Mview->error("check the box and click button to confirm removing the whitelist item");
+			$this->Mview->msg("check the box and click button to confirm removing the whitelist item");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
@@ -66,7 +66,7 @@ class WhiteLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->addWhiteList($campaignId, $whiteListId);
 		else
-			$this->Mview->error("check the box and click button to confirm adding the whitelist");
+			$this->Mview->msg("check the box and click button to confirm adding the whitelist");
 		$this->redir(true);
 	}
 	/*------------------------------*/
@@ -77,7 +77,7 @@ class WhiteLists extends BidderUI {
 		if ( $ok == "on" )
 			$this->removeWhiteList($campaignId, $whiteListId);
 		else
-			$this->Mview->error("check the box and click button to confirm removing dding the whitelist");
+			$this->Mview->msg("check the box and click button to confirm removing dding the whitelist");
 		$this->redir(true);
 	}
 	/*------------------------------------------------------------*/

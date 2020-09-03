@@ -43,7 +43,7 @@ class Campaigns extends BidderUI {
 				'lastUpdatedBy' => $this->loginName,
 			));
 		else
-			$this->Mview->error("$campaignName: check the box and click button to confirm turning on");
+			$this->Mview->msg("$campaignName: check the box and click button to confirm turning on");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
@@ -58,7 +58,7 @@ class Campaigns extends BidderUI {
 				'lastUpdatedBy' => $this->loginName,
 			));
 		else
-			$this->Mview->error("$campaignName: check the box and click button to confirm turning off");
+			$this->Mview->msg("$campaignName: check the box and click button to confirm turning off");
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
