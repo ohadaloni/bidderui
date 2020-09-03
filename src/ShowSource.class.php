@@ -10,10 +10,12 @@ class ShowSource extends BidderUI {
 		$topDir = @$_REQUEST['topDir'];
 		if ( $file ) {
 			$fpath = "$V/$topDir.theora.com/$file";
-			$source = highlight_file($fpath, true);
-			$tplArgs['topDir'] = $topDir;
-			$tplArgs['sourceFile'] = "$file";
-			$tplArgs['source'] = $source;
+			if ( file_exists($fpath) ) {
+				$source = highlight_file($fpath, true);
+				$tplArgs['topDir'] = $topDir;
+				$tplArgs['sourceFile'] = "$file";
+				$tplArgs['source'] = $source;
+			}
 		}
 		$this->Mview->showTpl("showSource/showSource.tpl", $tplArgs);
 	}
