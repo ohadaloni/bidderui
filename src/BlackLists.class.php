@@ -102,7 +102,7 @@ class BlackLists extends BidderUI {
 	}
 	/*------------------------------------------------------------*/
 	public function blackListOn() {
-		$blackListId = $_REQUEST['blackListId'];
+		$blackListId = @$_REQUEST['blackListId'];
 		$campaignId = @$_REQUEST['campaignId'];
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
@@ -113,7 +113,7 @@ class BlackLists extends BidderUI {
 	}
 	/*------------------------------*/
 	public function blackListOff() {
-		$blackListId = $_REQUEST['blackListId'];
+		$blackListId = @$_REQUEST['blackListId'];
 		$campaignId = @$_REQUEST['campaignId'];
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
