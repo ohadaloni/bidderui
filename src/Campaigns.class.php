@@ -33,7 +33,7 @@ class Campaigns extends BidderUI {
 	}
 	/*------------------------------------------------------------*/
 	public function on() {
-		$campaignId = $_REQUEST['campaignId'];
+		$campaignId = @$_REQUEST['campaignId'];
 		$campaignName = $this->bidderUtils->campaignName($campaignId);
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
@@ -48,7 +48,7 @@ class Campaigns extends BidderUI {
 	}
 	/*------------------------------------------------------------*/
 	public function off() {
-		$campaignId = $_REQUEST['campaignId'];
+		$campaignId = @$_REQUEST['campaignId'];
 		$campaignName = $this->bidderUtils->campaignName($campaignId);
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
