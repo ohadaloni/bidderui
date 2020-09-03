@@ -117,7 +117,7 @@ class Exchanges extends BidderUI {
 	}
 	/*------------------------------*/
 	public function updateTraffic() {
-		$this->dbUpdate("exchangeTraffic", $_REQUEST['id'], $_REQUEST);
+		$this->dbUpdate("exchangeTraffic", @$_REQUEST['id'], $_REQUEST);
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
