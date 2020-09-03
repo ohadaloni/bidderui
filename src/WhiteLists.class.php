@@ -60,7 +60,7 @@ class WhiteLists extends BidderUI {
 	}
 	/*------------------------------------------------------------*/
 	public function whiteListOn() {
-		$whiteListId = $_REQUEST['whiteListId'];
+		$whiteListId = @$_REQUEST['whiteListId'];
 		$campaignId = @$_REQUEST['campaignId'];
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
@@ -71,7 +71,7 @@ class WhiteLists extends BidderUI {
 	}
 	/*------------------------------*/
 	public function whiteListOff() {
-		$whiteListId = $_REQUEST['whiteListId'];
+		$whiteListId = @$_REQUEST['whiteListId'];
 		$campaignId = @$_REQUEST['campaignId'];
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
