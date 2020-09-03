@@ -292,7 +292,7 @@ class BidderUI extends Mcontroller {
 	protected function dbInsert($tableName, $data) {
 		if ( $this->loginName )
 			return($this->Mmodel->dbInsert($tableName, $data));
-		$this->Mview->error("Not logged in. insert ignored");
+		$this->Mview->msg("Not logged in. insert ignored");
 		return(null);
 	}
 	/*------------------------------*/
