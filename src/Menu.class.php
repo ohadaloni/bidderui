@@ -296,32 +296,6 @@ class Menu extends Mcontroller {
 					'url' => "/bidderUI/changePasswd",
 				),
 				array(
-					'divider' => '-----------------------',
-				),
-				array(
-					'name' => 'timeIn',
-					'title' => 'Time In',
-					'url' => "/timewatch/in",
-				),
-				array(
-					'name' => 'timeOut',
-					'title' => 'Time Out',
-					'url' => "/timewatch/out",
-				),
-				array(
-					'name' => 'timewatchThisMonth',
-					'title' => 'TimeWatch This Month',
-					'url' => "/timewatch",
-				),
-				array(
-					'name' => 'timeWatchSummary',
-					'title' => 'TimeWatch Summary',
-					'url' => "/timewatch/summary",
-				),
-				array(
-					'divider' => '-----------------------',
-				),
-				array(
 					'name' => 'logout',
 					'title' => 'Log Off',
 					'url' => "/?logOut=logOut",
