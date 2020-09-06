@@ -6,7 +6,11 @@ require_once("bidderUIFiles.php");
 require_once("BidderUI.class.php");
 /*------------------------------------------------------------*/
 $ua = @$_SERVER['HTTP_USER_AGENT'];
-if ( stristr($ua, "bot") || stristr($uaq, "crawl") ) {
+if (
+	stristr($ua, "bot")
+	|| stristr($ua, "crawl")
+	|| stristr($ua, "spider")
+	) {
 	http_response_code(204);
 	exit;
 }
