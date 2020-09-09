@@ -38,6 +38,17 @@ class Campaigns extends BidderUI {
 		));
 	}
 	/*------------------------------------------------------------*/
+	public function remove() {
+		$campaignId = @$_REQUEST['campaignId'];
+		if ( ! $campaignId || ! $this->isDeletable($campaignId) )
+			return;
+		$ok = @$_REQUEST['ok'];
+		if ( $ok == "on" )
+			$this->dbDelete("campaigns", $campaignId);
+		unset($_REQUEST['campaignId']);
+		$this->redir();
+	}
+	/*------------------------------------------------------------*/
 	private function isDeletable($campaignId) {
 		$tables = array(
 			'cCntDay',
@@ -52,7 +63,8 @@ class Campaigns extends BidderUI {
 		);
 		foreach ( $tables as $table ) {
 			$sql = "select count(*) from $table where campaignId = $campaignId";
-			if ( $this->Mmodel->getInt($sql) )
+			$hasHistory = $this->Mmodel->getInt($sql);
+			if ( $hasHistory )
 				return(false);
 		}
 		return(true);
