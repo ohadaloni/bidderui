@@ -52,7 +52,15 @@
 					<input type="text" name="landingPage" size="120" />
 				</td>
 			</tr>
-			<tr>
+			<tr class="bidderUIRow">
+				<td>week days</td>
+				<td>
+					{foreach from=$weekDays item=weekDay}
+						{$weekDay|weekDayStr}<input type="checkbox" name="weekDays[]" value="{$weekDay}" />
+					{/foreach}
+				</td>
+			</tr>
+			<tr class="bidderUIRow">
 				<td>hours</td>
 				<td>
 					{foreach from=$dayHours item=hour}

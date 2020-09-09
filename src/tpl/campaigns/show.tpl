@@ -12,6 +12,7 @@
 			<td>geo</td>
 			<td>banner</td>
 			<td>landingPage</td>
+			<td>days</td>
 			<td>hours</td>
 			<td>w</td>
 			<td>h</td>
@@ -72,6 +73,7 @@
 						title="{$row.landingPage}"
 						>{$row.landingPage|truncate:10}</a>
 				</td>
+				<td>{$row.weekDays|weekDaysStr}</td>
 				<td>{$row.hours}</td>
 				<td align="right">{$row.w}</td>
 				<td align="right">{$row.h}</td>

@@ -88,7 +88,16 @@
 					<input type="text" name="landingPage" size="120" value="{$campaign.landingPage}" />
 				</td>
 			</tr>
-			<tr>
+			<tr class="bidderUIRow">
+				<td>week days</td>
+				<td>
+					{foreach from=$weekDays item=weekDay}
+						{$weekDay|weekDayStr}<input type="checkbox" name="weekDays[]" value="{$weekDay}" 
+							{if $campaignWeekDays && $weekDay|in_array:$campaignWeekDays}checked="checked"{/if} />
+					{/foreach}
+				</td>
+			</tr>
+			<tr class="bidderUIRow">
 				<td>hours</td>
 				<td>
 					{foreach from=$dayHours item=hour}
