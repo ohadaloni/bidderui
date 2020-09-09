@@ -35,11 +35,22 @@ class BidderUIUtils extends Mcontroller {
 	private function registerFilters() {
 		$this->Mview->register_modifier("numberFormat", array("Mutils", "numberFormat",));
 		$this->Mview->register_modifier("terse", array("Mutils", "terse",));
-		$this->Mview->register_modifier("weekday", array("BidderUIUtils", "weekday",));
+		$this->Mview->register_modifier("weekDayStr", array("Mdate", "weekDayStr",));
+		$this->Mview->register_modifier("weekDaysStr", array($this, "weekDaysStr",));
 		$this->Mview->register_modifier("timeUnit", array("BidderUIUtils", "timeUnit",));
 		$this->Mview->register_modifier("exchangeName", array($this, "exchangeName",));
 		$this->Mview->register_modifier("campaignName", array($this, "campaignName",));
 		$this->Mview->register_modifier("monthlname", array("Mdate", "monthlname",));
+	}
+	/*------------------------------------------------------------*/
+	public function weekDaysStr($str) {
+		if ( ! $str )
+			return("");
+		$weekDays = array();
+		$numbers = explode(",", $str);
+		foreach ( $numbers as $number )
+			$weekDays[] = Mdate::weekDayStr($number);
+		return(implode(",", $weekDays));
 	}
 	/*------------------------------------------------------------*/
 	public function exchangeName($exchangeId) {
