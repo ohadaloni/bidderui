@@ -18,7 +18,7 @@
 			<td>h</td>
 			<td>changed</td>
 			<td>by</td>
-			<td colspan="3">
+			<td colspan="4">
 				<a href="/campaigns/newCampaign"><img
 					src="/images/new.png"
 					title="New Campaign"
@@ -98,6 +98,19 @@
 						title="Dashboard"
 						src="/images/table.png"
 					/></a>
+				</td>
+				<td>
+					{if $row.isDeletable}
+						<img
+							src="/images/delete.png"
+							title="delete campaign {$row.name}"
+						/>
+					{else}
+						<img
+							src="/images/fade/delete.png"
+							title="don't want to delete campaigns with history"
+						/>
+					{/if}
 				</td>
 			</tr>
 		{/foreach}
