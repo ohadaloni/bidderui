@@ -31,9 +31,31 @@ class Campaigns extends BidderUI {
 	public function show() {
 		$sql = "select * from campaigns";
 		$rows = $this->Mmodel->getRows($sql);
+		foreach ( $rows as $key => $row )
+			$rows[$key]['isDeletable'] = $this->isDeletable($row['id']);
 		$this->Mview->showTpl("campaigns/show.tpl", array(
 			'rows' => $rows,
 		));
+	}
+	/*------------------------------------------------------------*/
+	private function isDeletable($campaignId) {
+		$tables = array(
+			'cCntDay',
+			'cCntHour',
+			'cCntMinute',
+			'cCntMonth',
+			'cCntYear',
+			'revenue',
+			'wins',
+			/*	'campaignBlackLists',	*/
+			/*	'campaignWhiteLists',	*/
+		);
+		foreach ( $tables as $table ) {
+			$sql = "select count(*) from $table where campaignId = $campaignId";
+			if ( $this->Mmodel->getInt($sql) )
+				return(false);
+		}
+		return(true);
 	}
 	/*------------------------------------------------------------*/
 	public function on() {
