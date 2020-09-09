@@ -9,12 +9,16 @@ class Campaigns extends BidderUI {
 		$this->ttl = 30;
 		$bannerServer = BANNER_SERVER;
 		$bannerUrl = "http://$bannerServer/banners";
+		$weekDays = array();
+		for($i=0;$i<7;$i++)
+			$weekDays[] = $i;
 		$dayHours = array();
 		for($i=0;$i<24;$i++)
 			$dayHours[] = $i;
 		$this->Mview->assign(array(
 			'bannerUrl' => $bannerUrl,
 			'kinds' => $this->bidderUtils->kinds(),
+			'weekDays' => $weekDays,
 			'dayHours' => $dayHours,
 		));
 	}
@@ -68,6 +72,10 @@ class Campaigns extends BidderUI {
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" ) {
 			$data = $_REQUEST;
+			if ( @$data['weekDays'] )
+				$data['weekDays'] = implode(",", $data['weekDays']);
+			else
+				$data['weekDays'] = null;
 			if ( @$data['hours'] )
 				$data['hours'] = implode(",", $data['hours']);
 			else
@@ -84,12 +92,17 @@ class Campaigns extends BidderUI {
 	public function edit() {
 		$campaignId = $_REQUEST['campaignId'];
 		$campaign = $this->Mmodel->getById("campaigns", $campaignId);
+		if ( $campaign['weekDays'] )
+			$campaignWeekDays = explode(",", $campaign['weekDays']);
+		else
+			$campaignWeekDays = null;
 		if ( $campaign['hours'] )
 			$campaignHours = explode(",", $campaign['hours']);
 		else
 			$campaignHours = null;
 		$this->Mview->showTpl("campaigns/edit.tpl", array(
 			'campaign' => $campaign,
+			'campaignWeekDays' => $campaignWeekDays,
 			'campaignHours' => $campaignHours,
 		));
 	}
