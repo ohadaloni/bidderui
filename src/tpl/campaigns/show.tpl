@@ -101,10 +101,14 @@
 				</td>
 				<td>
 					{if $row.isDeletable}
-						<img
-							src="/images/delete.png"
-							title="delete campaign {$row.name}"
-						/>
+						<form method="get" action="/campaigns/remove">
+							<input type="checkbox" name="ok" />
+							<input type="hidden" name="campaignId" value="{$row.id}" />
+							<input
+								type="image"
+								src="/images/delete.png"
+								title="delete campaign {$row.name}"
+							/>
 					{else}
 						<img
 							src="/images/fade/delete.png"
