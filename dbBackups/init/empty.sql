@@ -135,6 +135,7 @@ CREATE TABLE campaigns (
   banner varchar(255) DEFAULT NULL,
   adm text,
   landingPage text,
+  weekDays varchar(255) DEFAULT NULL,
   hours varchar(255) DEFAULT NULL,
   w int(11) DEFAULT NULL,
   h int(11) DEFAULT NULL,
