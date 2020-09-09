@@ -2,6 +2,8 @@
 /*------------------------------------------------------------*/
 class Reports extends BidderUI {
 	/*------------------------------------------------------------*/
+	private $ttl = 3600;
+	/*------------------------------------------------------------*/
 	public function index() {
 		$this->drill();
 	}
@@ -26,7 +28,7 @@ class Reports extends BidderUI {
 		$timeConds = $this->timeConds($timeUnit, $time);
 		$orderBy = $this->orderBy($timeUnit);
 		$sql = "select * from $tname where $entityCond and $timeConds $orderBy";
-		$rows = $this->Mmodel->getRows($sql);
+		$rows = $this->Mmodel->getRows($sql, $this->ttl);
 		$this->bidderUIUtils->ammendRows($rows);
 		$drillUpTime = $this->drillUpTime($timeUnit, $time);
 		$tplArgs = array(
