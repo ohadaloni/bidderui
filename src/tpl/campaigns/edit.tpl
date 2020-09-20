@@ -67,6 +67,9 @@
 			<tr class="bidderUIRow">
 				<td>geo</td>
 				<td>
+					{if $campaign.geo}
+						<img src="/images/flags/{$campaign.geo|strtolower}.png" />
+					{/if}
 					{msuShowTpl file="select.tpl" name="geo" from=$countries fname="name" idname="code" selected=$campaign.geo}
 				</td>
 			</tr>
