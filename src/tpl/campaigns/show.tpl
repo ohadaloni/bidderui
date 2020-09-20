@@ -57,7 +57,7 @@
 				<td align="right">{$row.baseBid}</td>
 				<td align="right">{$row.maxBid}</td>
 				<td align="right">{$row.desiredProfitMargin|numberFormat:0:'%'}</td>
-				<td>{$row.geo}</td>
+				<td><img src="/images/flags/{$row.geo|strtolower}.png" />{$row.geo}</td>
 				<td>
 					{if $row.banner}
 						<a target="banner" href="{$bannerUrl}/{$row.banner}"><img
