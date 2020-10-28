@@ -53,12 +53,12 @@ foreach ( $cCntTables as $cCntTable ) {
 	$sql = "select count(*) from $cCntTable where $cConds";
 	$cnt = $mm->getInt($sql);
 	$s = $cnt == 1 ? "" : "s";
-	echo "$cCntTable: $cnt empty row$s\n";
 	if ( $cnt !== 0 ) {
-		echo "mys -v 'select * from $cCntTable where $cConds'\n";
-		echo "mys 'delete from $cCntTable where $cConds'\n";
+		echo "$cCntTable: $cnt empty row$s\n";
+		echo "select * from $cCntTable where $cConds;\n";
+		echo "delete from $cCntTable where $cConds;\n";
+		echo "---------------------------------------\n";
 	}
-	echo "---------------------------------------\n";
 }
 
 foreach ( $cntTables as $cntTable ) {
@@ -67,11 +67,11 @@ foreach ( $cntTables as $cntTable ) {
 	$sql = "select count(*) from $cntTable where $conds";
 	$cnt = $mm->getInt($sql);
 	$s = $cnt == 1 ? "" : "s";
-	echo "$cntTable: $cnt empty row$s\n";
 	if ( $cnt !== 0 ) {
-		echo "mys -v 'select * from $cntTable where $conds'\n";
-		echo "mys 'delete from $cntTable where $conds'\n";
+		echo "$cntTable: $cnt empty row$s\n";
+		echo "select * from $cntTable where $conds;\n";
+		echo "delete from $cntTable where $conds;\n";
+		echo "---------------------------------------\n";
 	}
-	echo "---------------------------------------\n";
 }
 
