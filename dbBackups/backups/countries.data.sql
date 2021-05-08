@@ -246,3 +246,5 @@ INSERT INTO countries VALUES (245,'GW','GNB','Guinea-Bissau');
 INSERT INTO countries VALUES (246,'YT','MYT','Mayotte');
 INSERT INTO countries VALUES (247,'EH','ESH','Western Sahara');
 INSERT INTO countries VALUES (248,'MF','MAF','Saint Martin');
+INSERT INTO countries VALUES (249,'FM','FSM','Micronesia');
+INSERT INTO countries VALUES (250,'XK','XKK','Kosovo');
