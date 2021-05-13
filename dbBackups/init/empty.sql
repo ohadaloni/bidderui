@@ -252,7 +252,9 @@ CREATE TABLE countries (
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`),
   UNIQUE KEY code3 (code3)
-) ENGINE=MyISAM AUTO_INCREMENT=251 DEFAULT CHARSET=utf8;
+);
+
+
 DROP TABLE IF EXISTS exCntDay;
 CREATE TABLE exCntDay (
   `id` int(11) NOT NULL AUTO_INCREMENT,
