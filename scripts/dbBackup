@@ -19,7 +19,7 @@ mysqldump $loginArgs --skip-quote-names --skip-comments --no-data $db \
 	| cat > $initDir/empty.sql
 
 alias mys mysql --column-names=FALSE $loginArgs $db
-set dataTables=( `echo show tables | mys | egrep -vi 'cnt|wins|revenue'` )
+set dataTables=( `echo show tables | mys | egrep -vi 'wins|revenue'` )
 foreach table ( $dataTables )
 	echo $table
 	mysqldump $loginArgs --skip-quote-names --skip-comments --no-create-info --extended-insert=false $db $table | fgrep 'INSERT' > $backupDir/$table.data.sql

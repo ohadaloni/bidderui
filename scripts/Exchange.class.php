@@ -155,9 +155,9 @@ class Exchange extends Mcontroller {
 			$this->log("sendRequest:  204: $url", 1);
 			return(null);
 		} else {
-			$this->log("sendRequest: 200: $url", 100);
+			$this->log("sendRequest: 200: $url", 2);
 			$pr = print_r($bid, true);
-			$this->log($pr, 100);
+			$this->log($pr, 2);
 			return($bid);
 		}
 	}
