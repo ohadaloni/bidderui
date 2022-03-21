@@ -107,7 +107,7 @@
 							<input
 								type="image"
 								src="/images/delete.png"
-								title="delete campaign {$row.name}"
+								title="(check box to) delete campaign {$row.name}"
 							/>
 					{else}
 						<img
