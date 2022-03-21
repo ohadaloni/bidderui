@@ -27,5 +27,4 @@ if ( $hostname == 'the-dev-host' ) then
 endif
 	
 cd $V/bidder.theora.com
-set myGitHubPasswd=`cat $V/tas.theora.com/conf/myGitHubPasswd`
-git push https://ohadaloni:$myGitHubPasswd@github.com/ohadaloni/bidder.git master
+git push git@github.com:ohadaloni/bidder.git master
