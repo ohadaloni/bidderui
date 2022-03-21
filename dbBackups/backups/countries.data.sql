@@ -39,7 +39,6 @@ INSERT INTO countries VALUES (38,'CV','CPV','Cape Verde');
 INSERT INTO countries VALUES (39,'KY','CYM','Cayman Islands');
 INSERT INTO countries VALUES (40,'CF','CAF','Central African Republic');
 INSERT INTO countries VALUES (41,'TD','TCD','Chad');
-INSERT INTO countries VALUES (42,NULL,NULL,'Channel Islands');
 INSERT INTO countries VALUES (43,'CL','CHL','Chile');
 INSERT INTO countries VALUES (44,'CN','CHN','China');
 INSERT INTO countries VALUES (45,'CX','CXR','Christmas Island');
