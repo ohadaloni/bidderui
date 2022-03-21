@@ -111,7 +111,8 @@
 							/>
 					{else}
 						<img
-							src="/images/fade/delete.png"
+							src="/images/delete.png"
+							style="opacity:0.4;"
 							title="don't want to delete campaigns with history"
 						/>
 					{/if}
