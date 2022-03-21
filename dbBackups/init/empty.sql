@@ -64,7 +64,8 @@ CREATE TABLE cCntMinute (
   clicks int(11) DEFAULT NULL,
   revenue double DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY campaignId (campaignId,`date`,`hour`,`minute`)
+  UNIQUE KEY campaignId (campaignId,`date`,`hour`,`minute`),
+  KEY `date` (`date`,`hour`,`minute`)
 );
 
 
