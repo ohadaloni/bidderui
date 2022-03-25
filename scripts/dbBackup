@@ -1,7 +1,6 @@
 #!/bin/csh -f
 
 # structure and config data are saveed separately
-# the full db backup has a monthly name
 # so git diffs whenever, on those.
 # but a monthly history is kept
 set V=/var/www/vhosts
@@ -19,19 +18,8 @@ mysqldump $loginArgs --skip-quote-names --skip-comments --no-data $db \
 	| cat > $initDir/empty.sql
 
 alias mys mysql --column-names=FALSE $loginArgs $db
-set dataTables=( `echo show tables | mys | egrep -vi 'exCnt|plCnt|CntMinute|wins|revenue'` )
+set dataTables=( `echo show tables | mys | egrep -v 'exCnt|plCnt|CntMinute|wins|revenue'` )
 foreach table ( $dataTables )
 	echo $table
 	mysqldump $loginArgs --skip-quote-names --skip-comments --no-create-info --extended-insert=false $db $table | fgrep 'INSERT' > $backupDir/$table.data.sql
 end
-# full backup
-if ( $#argv == 1 ) then
-	set month=`date +%Y-%m`
-	set fullDir=$theDir/full
-	mysqldump $loginArgs --skip-quote-names --skip-comments  --extended-insert=false $db \
-		| fgrep -v '/*\!40' \
-		| fgrep -v 'LOCK TABLES' \
-		| sed 's/ ENGINE=InnoDB.*;/;\n\n/' \
-		| cat > $fullDir/full.$month.sql
-endif
-
