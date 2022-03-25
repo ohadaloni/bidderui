@@ -1,8 +1,5 @@
 #!/bin/csh -f
 
-# structure and config data are saveed separately
-# so git diffs whenever, on those.
-# but a monthly history is kept
 set V=/var/www/vhosts
 set TAS=$V/tas.theora.com
 source $TAS/conf/dbCredentials.env
@@ -18,7 +15,7 @@ mysqldump $loginArgs --skip-quote-names --skip-comments --no-data $db \
 	| cat > $initDir/empty.sql
 
 alias mys mysql --column-names=FALSE $loginArgs $db
-set dataTables=( `echo show tables | mys | egrep -v 'exCnt|plCnt|CntMinute|wins|revenue'` )
+set dataTables=( `echo show tables | mys | egrep -v 'users|exCnt|plCnt|ntMinute|wins|revenue'` )
 foreach table ( $dataTables )
 	echo $table
 	mysqldump $loginArgs --skip-quote-names --skip-comments --no-create-info --extended-insert=false $db $table | fgrep 'INSERT' > $backupDir/$table.data.sql
