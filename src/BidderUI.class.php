@@ -10,7 +10,6 @@ class BidderUI extends Mcontroller {
 	protected $bidderUtils;
 	protected $memUtils;
 	protected $keyNames;
-	protected $Mmemcache;
 	/*------------------------------*/
 	private $startTime;
 	/*------------------------------------------------------------*/
@@ -25,7 +24,6 @@ class BidderUI extends Mcontroller {
 
 		$this->memUtils = new MemUtils;
 		$this->keyNames = new KeyNames;
-		$this->Mmemcache = new Mmemcache;
 		Mutils::setenv("debugLevel", 1);
 		$this->bidderUIUtils = new BidderUIUtils;
 		$logFile = $this->bidderUIUtils->logFile();
@@ -173,16 +171,8 @@ class BidderUI extends Mcontroller {
 		return(true);
 	}
 	/*------------------------------------------------------------*/
-	private function isAjax() {
-		$http_x_requested_with = @$_SERVER['HTTP_X_REQUESTED_WITH'];
-		$isAjax =
-			$http_x_requested_with &&
-			strtolower($http_x_requested_with) == "xmlhttprequest" ;
-		return($isAjax);
-	}
-	/*------------------------------*/
 	private function showMargins() {
-		if ( $this->isAjax() ) {
+		if ( Mutils::isAjax() ) {
 			return(false);
 		}
 		$nots = array(
@@ -212,16 +202,15 @@ class BidderUI extends Mcontroller {
 	}
 	/*------------------------------------------------------------*/
 	public function memcacheTest() {
-			$mc = new Mmemcache;
 			$randKey = "randKey-".rand(1,100000);
 			$randValue = rand(1,100000);
 			$ttl = rand(1, 4);
-			$setRet = $mc->set($randKey, $randValue, $ttl);
+			$setRet = $this->Mmemcache->set($randKey, $randValue, $ttl);
 			if ( ! $setRet  ) {
 					$this->Mview->error("memcacheTest: failed to set");
 					return;
 			}
-			$get = $mc->get($randKey);
+			$get = $this->Mmemcache->get($randKey);
 			if ( $get == $randValue )
 					$this->Mview->msg("memcacheTest: works");
 			else
@@ -229,9 +218,8 @@ class BidderUI extends Mcontroller {
 	}
 	/*------------------------------------------------------------*/
 	public function memcacheStats() {
-			$mc = new Mmemcache;
-			$mc->connect();
-			$memcache = $mc->memcache();
+			$this->Mmemcache->connect();
+			$memcache = $this->Mmemcache->memcache();
 			$serverStatus = $memcache->getServerStatus("localhost");
 			$stats = $memcache->getStats();
 			$stats['time'] = date("Y-m-d G:i:s", $stats['time']);
