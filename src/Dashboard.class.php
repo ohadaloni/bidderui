@@ -17,9 +17,9 @@ class Dashboard extends BidderUI {
 	/*------------------------------------------------------------*/
 	public function index() {
 		$this->controlPanel();
-		$this->br(2);
+		$this->Mview->br(2);
 		$this->ticker();
-		$this->br(3);
+		$this->Mview->br(3);
 		$this->board();
 	}
 	/*------------------------------------------------------------*/
