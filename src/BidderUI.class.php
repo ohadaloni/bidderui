@@ -307,11 +307,6 @@ class BidderUI extends Mcontroller {
 	}
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
-	protected function br($num = 1) {
-		for($i=0;$i<$num;$i++)
-			$this->Mview->pushOutput("<br />\n");
-	}
-	/*------------------------------------------------------------*/
 	protected function error($msg, $r = 100) {
 		$this->log("ERROR: $msg", $r);
 	}
