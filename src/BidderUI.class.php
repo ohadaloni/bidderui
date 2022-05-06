@@ -24,7 +24,6 @@ class BidderUI extends Mcontroller {
 
 		$this->memUtils = new MemUtils;
 		$this->keyNames = new KeyNames;
-		Mutils::setenv("debugLevel", 1);
 		$this->bidderUIUtils = new BidderUIUtils;
 		$logFile = $this->bidderUIUtils->logFile();
 		$this->logger = new Logger($logFile);
