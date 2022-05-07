@@ -201,43 +201,11 @@ class BidderUI extends Mcontroller {
 	}
 	/*------------------------------------------------------------*/
 	public function memcacheTest() {
-			$randKey = "randKey-".rand(1,100000);
-			$randValue = rand(1,100000);
-			$ttl = rand(1, 4);
-			$setRet = $this->Mmemcache->set($randKey, $randValue, $ttl);
-			if ( ! $setRet  ) {
-					$this->Mview->error("memcacheTest: failed to set");
-					return;
-			}
-			$get = $this->Mmemcache->get($randKey);
-			if ( $get == $randValue )
-					$this->Mview->msg("memcacheTest: works");
-			else
-					$this->Mview->error("memcacheTest: failed to get after set");
+		Mutils::memcacheTest();
 	}
 	/*------------------------------------------------------------*/
 	public function memcacheStats() {
-			$this->Mmemcache->connect();
-			$memcache = $this->Mmemcache->memcache();
-			$serverStatus = $memcache->getServerStatus("localhost");
-			$stats = $memcache->getStats();
-			$stats['time'] = date("Y-m-d G:i:s", $stats['time']);
-			$upTotalSeconds = $stats['uptime'];
-			$upSeconds = $upTotalSeconds % 60;
-			$upTotalMinutes = ($upTotalSeconds - $upSeconds)/60;
-			$upMinutes = $upTotalMinutes % 60;
-			$upTotalHours = ($upTotalMinutes - $upMinutes)/60;
-			$upHours = $upTotalHours % 60;
-			$upDays = ( $upTotalHours - $upHours ) / 24 ;
-			$upDaysS = $upDays == 1 ? "" : "s";
-			$stats['serverStatus'] = $serverStatus;
-			$stats['uptimeStr'] =
-				sprintf(" %d day$upDaysS & %d:%02d:%02d h/m/s",
-						$upDays, $upHours, $upMinutes, $upSeconds);
-			$this->Mview->showTpl("admin/memcacheStats.tpl", array(
-					'stats' => $stats,
-					'serverStatus' => $serverStatus,
-			));
+		Mutils::memcacheStats();
 	}
 	/*------------------------------------------------------------*/
 	public function changePasswd() {
