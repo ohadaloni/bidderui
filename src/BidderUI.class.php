@@ -13,9 +13,8 @@ class BidderUI extends Mcontroller {
 	/*------------------------------*/
 	private $startTime;
 	/*------------------------------------------------------------*/
-	public function __construct($startTime) {
+	public function __construct() {
 		parent::__construct();
-		$this->startTime = $startTime;
 
 		// permit is called before before()
 		// and if fails, before is not called.
@@ -32,6 +31,10 @@ class BidderUI extends Mcontroller {
 		$sql = "select * from countries order by name";
 		$countries = $this->Mmodel->getRows($sql, 24*3600);
 		$this->Mview->assign("countries", $countries);
+	}
+	/*------------------------------------------------------------*/
+	public function startTime($startTime) {
+		$this->startTime = $startTime;
 	}
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
