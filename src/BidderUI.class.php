@@ -10,8 +10,6 @@ class BidderUI extends Mcontroller {
 	protected $bidderUtils;
 	protected $memUtils;
 	protected $keyNames;
-	/*------------------------------*/
-	private $startTime;
 	/*------------------------------------------------------------*/
 	public function __construct() {
 		parent::__construct();
@@ -31,10 +29,6 @@ class BidderUI extends Mcontroller {
 		$sql = "select * from countries order by name";
 		$countries = $this->Mmodel->getRows($sql, 24*3600);
 		$this->Mview->assign("countries", $countries);
-	}
-	/*------------------------------------------------------------*/
-	public function startTime($startTime) {
-		$this->startTime = $startTime;
 	}
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
@@ -66,7 +60,6 @@ class BidderUI extends Mcontroller {
 	protected function after() {
 		if ( ! $this->showMargins())
 			return;
-		$this->Mview->runningTime($this->startTime);
 		$this->Mview->showTpl("footer.tpl");
 		$this->Mview->showTpl("foot.tpl");
 	}
