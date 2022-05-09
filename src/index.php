@@ -5,7 +5,7 @@ require_once(M_DIR."/mfiles.php");
 require_once("bidderUIFiles.php");
 require_once("BidderUI.class.php");
 /*------------------------------------------------------------*/
-$this->startTime = microtime(true);
+$startTime = microtime(true);
 /*------------------------------------------------------------*/
 $ua = @$_SERVER['HTTP_USER_AGENT'];
 if (
@@ -24,7 +24,8 @@ $Mview = new Mview;
 $Mmodel = new Mmodel;
 $Mview->holdOutput();
 /*------------------------------------------------------------*/
-$bidderUI = new BidderUI($startTime);
+$bidderUI = new BidderUI;
+$bidderUI->startTime($startTime);
 $bidderUILogin = new BidderUILogin;
 if ( isset($_REQUEST['logOut']) ) {
 	$bidderUI = new BidderUI;
