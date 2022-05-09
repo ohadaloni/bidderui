@@ -25,7 +25,7 @@ $Mmodel = new Mmodel;
 $Mview->holdOutput();
 /*------------------------------------------------------------*/
 $bidderUI = new BidderUI;
-$bidderUI->startTime($startTime);
+$bidderUI->setStartTime($startTime);
 $bidderUILogin = new BidderUILogin;
 if ( isset($_REQUEST['logOut']) ) {
 	$bidderUI = new BidderUI;
