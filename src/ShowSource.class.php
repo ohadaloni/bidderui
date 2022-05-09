@@ -16,6 +16,7 @@ class ShowSource extends BidderUI {
 				$source = highlight_file($fpath, true);
 				$tplArgs['topDir'] = $topDir;
 				$tplArgs['sourceFile'] = $sourceFileName;
+				Mview::print_r($tplArgs, "tplArgs", basename(__FILE__), __LINE__, null, false);
 				$tplArgs['source'] = $source;
 			}
 		}
