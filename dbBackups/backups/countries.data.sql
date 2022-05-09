@@ -108,7 +108,7 @@ INSERT INTO countries VALUES (108,'JO','JOR','Jordan');
 INSERT INTO countries VALUES (109,'KZ','KAZ','Kazakhstan');
 INSERT INTO countries VALUES (110,'KE','KEN','Kenya');
 INSERT INTO countries VALUES (111,'KI','KIR','Kiribati');
-INSERT INTO countries VALUES (112,'NK',NULL,'Korea North');
+INSERT INTO countries VALUES (112,'KP',NULL,'North Korea');
 INSERT INTO countries VALUES (113,'KR','KOR','South Korea');
 INSERT INTO countries VALUES (114,'KW','KWT','Kuwait');
 INSERT INTO countries VALUES (115,'KG','KGZ','Kyrgyzstan');
