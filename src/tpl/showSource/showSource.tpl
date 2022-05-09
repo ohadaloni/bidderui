@@ -18,7 +18,7 @@
 				<tr class="bidderUIHeaderRow">
 					<td>Bidder UI & Exchage simulation</td>
 				</tr>
-				{foreach from=$ccFiles item=file}
+				{foreach from=$uiFiles item=file}
 					<tr class="bidderUIRow">
 						<td>
 							<a href="/showSource?topDir=bidderui&file={$file}">{$file}</a>
