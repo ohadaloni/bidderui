@@ -125,7 +125,7 @@ class Exchange extends Mcontroller {
 		$bidId = $bid0['id'];
 		$price = $bid0['price'];
 		$cpaServer = CPA_SERVER;
-		$cpa = ($price/1000.0) * (rand(300, 800)/100.0)  ; // in dollars - price is in pm - $$*1000
+		$cpa = ($price/1000.0) * (rand(300, 800)/100.0); // in dollars - price is in pm - $$*1000
 		$cpaUrl = "http://$cpaServer/cpa?bidId=$bidId&cpa=$cpa";
 		$httpCode = $this->mCurl->getHttpCode($cpaUrl);
 		$this->log("sendCpa: $cpaUrl: $httpCode", 1);
@@ -152,7 +152,7 @@ class Exchange extends Mcontroller {
 			$this->error("sendRequest: false httpCode: $url");
 			return(null);
 		} elseif ( $httpCode == 204 ) {
-			$this->log("sendRequest:  204: $url", 1);
+			$this->log("sendRequest: 204: $url", 1);
 			return(null);
 		} else {
 			$this->log("sendRequest: 200: $url", 2);
@@ -184,7 +184,7 @@ class Exchange extends Mcontroller {
 		$thisYear = date("Y");
 		$bidRequest['user']['yob'] = $thisYear - rand(9, 45);
 		$rnd = rand(1, 100);
-		$bidRequest['user']['gender'] = $rnd < 20 ? "F" : ( $rnd < 40 ? "M" : ( $rnd < 45 ? "O" : null ) ) ;
+		$bidRequest['user']['gender'] = $rnd < 20 ? "F" : ( $rnd < 40 ? "M" : ( $rnd < 45 ? "O" : null ) );
 
 		// app names I made up, so not really as it appears in a bid request
 		$apps = array(
