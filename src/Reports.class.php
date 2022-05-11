@@ -182,10 +182,10 @@ class Reports extends BidderUI {
 					$timeDescription = "allTime";
 				break;
 			case 'year':
-					$timeDescription = $time == 'now' ? date("Y") : $time ;
+					$timeDescription = $time == 'now' ? date("Y") : $time;
 				break;
 			case 'month':
-					$timeDescription = $time == 'now' ? date("Y-m") : $time ;
+					$timeDescription = $time == 'now' ? date("Y-m") : $time;
 				break;
 			case 'day':
 					$timeDescription = $time == 'now' ? date("Y-m-d") : $time;
@@ -231,11 +231,11 @@ class Reports extends BidderUI {
 					$timeConds = "true";
 				break;
 			case 'year':
-					$year = $time == 'now' ? date("Y") : $time ;
+					$year = $time == 'now' ? date("Y") : $time;
 					$timeConds = "month like '$year-%'";
 				break;
 			case 'month':
-					$month = $time == 'now' ? date("Y-m") : $time ;
+					$month = $time == 'now' ? date("Y-m") : $time;
 					$timeConds = "left(date, 7) = '$month'";
 				break;
 			case 'day':
