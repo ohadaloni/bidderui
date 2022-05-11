@@ -69,7 +69,7 @@ class Dashboard extends BidderUI {
 		if ( $elapsed == 0 )
 			$qps = $cnt;
 		else
-			$qps = $cnt / $elapsed ;
+			$qps = $cnt / $elapsed;
 
 		$qps = round($qps, 3);
 
@@ -96,9 +96,9 @@ class Dashboard extends BidderUI {
 			"Last Request: $requestDescription",
 			"\ntech stuff:",
 			"memcached: $memcachedHealth",
-			"placementIds Q length:  $placementIdsQlength",
-			"wins Q length:  $winQlength",
-			"revenue Q length:  $revenueQlength",
+			"placementIds Q length: $placementIdsQlength",
+			"wins Q length: $winQlength",
+			"revenue Q length: $revenueQlength",
 		);
 		$msgs = implode("\n", $msgs);
 		$this->Mview->msg($msgs);
@@ -108,7 +108,7 @@ class Dashboard extends BidderUI {
 			$randKey = "randKey-".rand(1,100000);
 			$randValue = rand(1,100000);
 			$setRet = $this->Mmemcache->set($randKey, $randValue, 5);
-			if ( ! $setRet  )
+			if ( ! $setRet )
 					return("unable to set");
 			$get = $this->Mmemcache->get($randKey);
 			if ( $get == $randValue )
