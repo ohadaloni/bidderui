@@ -22,7 +22,7 @@
 	</form>
 	<br />
 	<br />
-	<form action="/blackLists/newItem"  method="post">
+	<form action="/blackLists/newItem" method="post">
 		<table>
 			<tr class="bidderUIHeaderRow">
 				<td colspan="2">New Domain for this Blacklist</td>
@@ -40,7 +40,7 @@
 	</form>
 	<br />
 	<br />
-	<form action="/blackLists/upload"  method="post" enctype="multipart/form-data">
+	<form action="/blackLists/upload" method="post" enctype="multipart/form-data">
 		<table>
 			<tr class="bidderUIHeaderRow">
 				<td>Upload text/csv with list of Domains for this Blacklist</td>
