@@ -40,7 +40,7 @@ class Publisher extends BidderUI {
 		$id = "forceCampaignId:$rnd";
 		$bidRequest = array(
 			'id' => $id,
-			'imp'  => array(
+			'imp' => array(
 				array(
 					'id' => 1,
 					'banner' => array(
@@ -49,7 +49,7 @@ class Publisher extends BidderUI {
 					),
 				),
 			),
-			'device'  => array(
+			'device' => array(
 				'geo' => array(
 					'country' => "ISR",
 				),
@@ -63,7 +63,7 @@ class Publisher extends BidderUI {
 			$this->Mview->error("sendRequest: false httpCode");
 			return(null);
 		} elseif ( $httpCode == 204 ) {
-			$this->Mview->error("sendRequest:  204", 1);
+			$this->Mview->error("sendRequest: 204", 1);
 			return(null);
 		} else {
 			return($bid);
