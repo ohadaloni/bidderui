@@ -22,7 +22,7 @@
 	</form>
 	<br />
 	<br />
-	<form action="/whiteLists/newItem"  method="post">
+	<form action="/whiteLists/newItem" method="post">
 		<table>
 			<tr class="bidderUIHeaderRow">
 				<td colspan="2">New Domain for this whitelist</td>
