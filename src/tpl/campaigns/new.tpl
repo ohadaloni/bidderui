@@ -13,7 +13,7 @@
 			<tr class="bidderUIRow">
 				<td>kind</td>
 				<td>
-					{msuShowTpl file="selectString.tpl"  name="kind" from=$kinds}
+					{msuShowTpl file="selectString.tpl" name="kind" from=$kinds}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
@@ -43,7 +43,7 @@
 			<tr class="bidderUIRow">
 				<td>geo</td>
 				<td>
-					{msuShowTpl file="select.tpl"  name="geo" from=$countries fname="name" idname="code"}
+					{msuShowTpl file="select.tpl" name="geo" from=$countries fname="name" idname="code"}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
