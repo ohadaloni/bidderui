@@ -37,7 +37,7 @@
 			<tr class="bidderUIRow">
 				<td>kind</td>
 				<td>
-					{msuShowTpl file="selectString.tpl"  name="kind" from=$kinds selected=$campaign.kind}
+					{msuShowTpl file="selectString.tpl" name="kind" from=$kinds selected=$campaign.kind}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
