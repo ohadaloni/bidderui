@@ -13,7 +13,7 @@
 			<tr class="bidderUIRow">
 				<td>kind</td>
 				<td>
-					{msuShowTpl file="selectString.tpl"  name="kind" from=$kinds selected=$row.kind}
+					{msuShowTpl file="selectString.tpl" name="kind" from=$kinds selected=$row.kind}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
@@ -31,19 +31,19 @@
 			<tr class="bidderUIRow">
 				<td>geo</td>
 				<td>
-					{msuShowTpl file="select.tpl"  name="geo" from=$countries fname="name" idname="code3" selected=$row.geo}
+					{msuShowTpl file="select.tpl" name="geo" from=$countries fname="name" idname="code3" selected=$row.geo}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
 				<td>gender</td>
 				<td>
-					{msuShowTpl file="selectString.tpl"  name="gender" from=$genders selected=$row.gender}
+					{msuShowTpl file="selectString.tpl" name="gender" from=$genders selected=$row.gender}
 				</td>
 			</tr>
 			<tr class="bidderUIRow">
 				<td>ageGroup</td>
 				<td>
-					{msuShowTpl file="selectString.tpl"  name="ageGroup" from=$ageGroups selected=$row.ageGroup}
+					{msuShowTpl file="selectString.tpl" name="ageGroup" from=$ageGroups selected=$row.ageGroup}
 				</td>
 			</tr>
 			<tr class="bidderUIHeaderRow">
