@@ -18,7 +18,7 @@
 							<input
 								type="image"
 								src="/images/circles/green.png"
-								title="in effect -  check the box and click button to turn off"
+								title="in effect - check the box and click button to turn off"
 							/>
 						</form>
 					{else}
