@@ -1,0 +1,22 @@
+#!/bin/csh -f
+
+set V=/var/www/vhosts
+set TAS=$V/tas.theora.com
+source $TAS/conf/dbCredentials.env
+set UI=$V/ohad.bidderui.theora.com
+set theDir=$UI/dbBackups
+set backupDir=$theDir/backups
+set initDir=$theDir/init
+set loginArgs=(  -u$M_USER -p$M_PASSWORD )
+set db=bidder
+mysqldump $loginArgs --skip-quote-names --skip-comments --no-data $db \
+	| fgrep -v '/*\!40' \
+	| sed 's/ ENGINE=InnoDB.*;/;\n\n/' \
+	| cat > $initDir/empty.sql
+
+alias mys mysql --column-names=FALSE $loginArgs $db
+set dataTables=( `echo show tables | mys | egrep -v 'users|exCnt|plCnt|ntMinute|wins|revenue'` )
+foreach table ( $dataTables )
+	echo $table
+	mysqldump $loginArgs --skip-quote-names --skip-comments --no-create-info --extended-insert=false $db $table | fgrep 'INSERT' > $backupDir/$table.data.sql
+end

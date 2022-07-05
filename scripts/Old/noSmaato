@@ -1,0 +1,23 @@
+#!/usr/bin/php
+<?php
+require_once("scriptsConfig.php");
+$exCntTables = array(
+	'exCntDay',
+	'exCntHour',
+	'exCntMinute',
+	'exCntMonth',
+	'exCntYear',
+);
+$plCntTables = array(
+	'plCntDay',
+	'plCntHour',
+	'plCntMinute',
+	'plCntMonth',
+	'plCntYear',
+);
+foreach ( $exCntTables as $exCntTable )
+	echo "delete from $exCntTable where exchangeId = 3;\n";
+foreach ( $plCntTables as $plCntTable )
+	echo "delete from $plCntTable where placementId like '%smaato%';\n";
+
+
