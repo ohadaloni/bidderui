@@ -276,11 +276,11 @@ class BidderUI extends Mcontroller {
 	/*------------------------------------------------------------*/
 	protected function log($msg, $r = 100) {
 		if ( rand(1, 100 * 1000) > $r * 1000 )
-				return;
+			return;
 		if ( $r == 100 )
-				$str = $msg;
+			$str = $msg;
 		else
-				$str = "$r/100: $msg";
+			$str = "$r/100: $msg";
 		$this->logger->log($str);
 	}
 	/*------------------------------------------------------------*/
