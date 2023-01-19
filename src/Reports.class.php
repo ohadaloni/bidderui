@@ -5,6 +5,7 @@ class Reports extends BidderUI {
 	private $ttl = 3600;
 	/*------------------------------------------------------------*/
 	public function index() {
+		http_response_code(204);
 		exit;
 		/*	$this->drill();	*/
 	}
